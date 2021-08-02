@@ -19,7 +19,7 @@ namespace UniAPI.Contexts
 
         public CourseInfoContext(DbContextOptions<CourseInfoContext> options) : base(options)
         {
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
 
     }
