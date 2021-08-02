@@ -10,7 +10,7 @@ namespace UniAPI.Services
     {
         ICollection<Course> GetAllCourses();
 
-        Course GetCourseById(int courseId);
+        Course GetCourseById(int courseId, bool includeStudents);
 
         IEnumerable<Course> GetCoursesByStudent(int studentId);
 
@@ -19,5 +19,7 @@ namespace UniAPI.Services
         Student GetStudentById(int studentId);
 
         IEnumerable<Student> GetStudentsByCourse(int courseId);
+
+        bool CourseExists(int courseId);
     }
 }

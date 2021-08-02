@@ -16,6 +16,14 @@ namespace UniAPI.Services
         {
             _context = context ?? throw new ArgumentNullException();
         }
+
+        public bool CourseExists(int courseId)
+        {
+            var result = _context.Courses.Any(p => p.Id == courseId);
+
+            return result;
+        }
+
         public ICollection<Course> GetAllCourses()
         {
             var result = _context.Courses.Select(P => P).ToList();
@@ -30,12 +38,23 @@ namespace UniAPI.Services
             return result;
         }
 
-        public Course GetCourseById(int courseId)
+        public Course GetCourseById(int courseId, bool includeStudents)
         {
-            var result = _context.Courses.SingleOrDefault(p => p.Id == courseId);
+            if (!includeStudents)
+            {
+                var result = _context.Courses.SingleOrDefault(p => p.Id == courseId);
 
-            return result;
+                return result;
+            }
+
+            else
+            {
+                var result = _context.Courses.Include(P => P.Students).SingleOrDefault(p => p.Id == courseId);
+
+                return result;
+            }
         }
+
 
         public IEnumerable<Course> GetCoursesByStudent(int studentId)
         {

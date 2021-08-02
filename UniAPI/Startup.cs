@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using UniAPI.Contexts;
 using UniAPI.Services;
 
@@ -35,6 +36,8 @@ namespace UniAPI
                 
                 opt.UseSqlServer(connectionString));
 
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -42,6 +45,7 @@ namespace UniAPI
             });
 
             services.AddScoped<ICourseInfoRepository, CourseInfoRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

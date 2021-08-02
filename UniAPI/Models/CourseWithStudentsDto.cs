@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
-using UniAPI.Entities;
 
 namespace UniAPI.Models
 {
-    public class CourseDto
-    {
+    public class CourseWithStudentsDto
+    { 
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -17,5 +14,10 @@ namespace UniAPI.Models
         public int ClassRoomId { get; set; }
 
         public DateTime DateTime { get; set; }
+
+        public int LecturerId { get; set; }
+
+        public ICollection<StudentDto> Students { get; set; } 
+            = new List<StudentDto>();
     }
 }
