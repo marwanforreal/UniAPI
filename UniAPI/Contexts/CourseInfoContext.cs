@@ -22,5 +22,66 @@ namespace UniAPI.Contexts
             //Database.EnsureCreated();
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            
+            modelBuilder.Entity<Student>().HasData(
+                new Student()
+                {
+                    Id = 1,
+                    Name = "Marwan",
+                    Email = "marwan@terkwaz.com"
+                }
+            );
+
+            modelBuilder.Entity<Lecturer>().HasData(
+
+                new Lecturer()
+                {
+                    Id = 2,
+                    Name = "Ahmed",
+                    Email = "Ahmed@terkwaz.com"
+                }
+            );
+
+            modelBuilder.Entity<ClassRoom>().HasData(
+
+                new ClassRoom()
+                {
+                    Id = 3,
+                    Name = "IT108",
+                    Address = "Third Floor"
+                }
+            );
+
+            modelBuilder.Entity<Course>().HasData(
+
+                new Course()
+                {
+                    Id = 4,
+                    Name = "Introduction To Computer Science",
+                    DateTime = new DateTime(2021,10,15,15,15,15),
+                    ClassRoomId = 3,
+                    LecturerId = 2
+                }
+                    );
+
+            modelBuilder.Entity<Student>()
+                .HasMany(p => p.EnrolledCourses)
+                .WithMany(t => t.Students).UsingEntity<Dictionary<string, object>>("CourseStudent",
+                    r => r.HasOne<Course>().WithMany(),
+                    l => l.HasOne<Student>().WithMany(),
+
+                    je =>
+                    {
+                        je.HasKey("EnrolledCoursesId", "StudentsId");
+
+                        je.HasData(
+                            new {EnrolledCoursesId = 4, StudentsId = 1}
+                        );
+                    });
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

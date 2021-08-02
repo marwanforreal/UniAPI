@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UniAPI.Contexts;
 
 namespace UniAPI.Migrations
 {
     [DbContext(typeof(CourseInfoContext))]
-    partial class CourseInfoContextModelSnapshot : ModelSnapshot
+    [Migration("20210802124741_AddedMyFirstCourse")]
+    partial class AddedMyFirstCourse
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,13 +34,6 @@ namespace UniAPI.Migrations
                     b.HasIndex("StudentsId");
 
                     b.ToTable("CourseStudent");
-
-                    b.HasData(
-                        new
-                        {
-                            EnrolledCoursesId = 4,
-                            StudentsId = 1
-                        });
                 });
 
             modelBuilder.Entity("UniAPI.Entities.ClassRoom", b =>
