@@ -16,7 +16,7 @@ namespace UniAPI.Services
 
         IEnumerable<Student> GetAllStudents();
 
-        Student GetStudentById();
+        Student GetStudentById(int studentId);
 
         IEnumerable<Student> GetStudentsByCourse(int courseId);
     }

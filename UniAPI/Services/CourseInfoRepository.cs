@@ -42,10 +42,13 @@ namespace UniAPI.Services
             var result = _context.Courses.Include(p => p.Students).ToList();
 
             return result;
+        }
 
-        public Student GetStudentById()
+        public Student GetStudentById(int studentId)
         {
-            throw new NotImplementedException();
+            var result = _context.Students.SingleOrDefault(P => P.Id == studentId);
+
+            return result;
         }
 
         public IEnumerable<Student> GetStudentsByCourse(int courseId)
