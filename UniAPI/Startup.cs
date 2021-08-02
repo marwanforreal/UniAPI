@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using UniAPI.Contexts;
+using UniAPI.Services;
 
 namespace UniAPI
 {
@@ -39,6 +40,8 @@ namespace UniAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "UniAPI", Version = "v1" });
             });
+
+            services.AddScoped<ICourseInfoRepository, CourseInfoRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
