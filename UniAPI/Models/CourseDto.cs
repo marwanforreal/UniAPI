@@ -13,5 +13,9 @@ namespace UniAPI.Models
         public int Id { get; set; }
 
         public string Name { get; set; }
+
+        public int ClassRoomId { get; set; }
+
+        public DateTime DateTime { get; set; }
     }
 }

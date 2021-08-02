@@ -8,7 +8,7 @@ namespace UniAPI.Services
 {
     public interface ICourseInfoRepository
     {
-        IEnumerable<Course> GetAllCourse();
+        ICollection<Course> GetAllCourses();
 
         Course GetCourseById(int courseId);
 

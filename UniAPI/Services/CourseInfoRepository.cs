@@ -16,7 +16,7 @@ namespace UniAPI.Services
         {
             _context = context ?? throw new ArgumentNullException();
         }
-        public IEnumerable<Course> GetAllCourse()
+        public ICollection<Course> GetAllCourses()
         {
             var result = _context.Courses.Select(P => P).ToList();
 
