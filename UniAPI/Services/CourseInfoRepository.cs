@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using UniAPI.Contexts;
 using UniAPI.Entities;
 
@@ -17,23 +18,30 @@ namespace UniAPI.Services
         }
         public IEnumerable<Course> GetAllCourse()
         {
-            throw new NotImplementedException();
+            var result = _context.Courses.Select(P => P).ToList();
+
+            return result;
         }
 
         public IEnumerable<Student> GetAllStudents()
         {
-            throw new NotImplementedException();
+            var result = _context.Students.Select(P => P).ToList();
+
+            return result;
         }
 
         public Course GetCourseById(int courseId)
         {
-            throw new NotImplementedException();
+            var result = _context.Courses.SingleOrDefault(p => p.Id == courseId);
+
+            return result;
         }
 
         public IEnumerable<Course> GetCoursesByStudent(int studentId)
         {
-            throw new NotImplementedException();
-        }
+            var result = _context.Courses.Include(p => p.Students).ToList();
+
+            return result;
 
         public Student GetStudentById()
         {
