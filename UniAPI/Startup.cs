@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using UniAPI.Contexts;
 
 namespace UniAPI
 {
@@ -26,6 +28,11 @@ namespace UniAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionString = Configuration["connectionString:UniAPIDbConnectionString"];
+
+            services.AddDbContext<CourseInfoContext>(opt => 
+                
+                opt.UseSqlServer(connectionString));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
