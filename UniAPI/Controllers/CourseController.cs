@@ -69,5 +69,27 @@ namespace UniAPI.Controllers
                 return Ok(mappedCourse);
             }
         }
+
+        [HttpGet("students/courses/{studentId}")]
+        public ActionResult<CourseWithoutStudentsDto> GetCourseByStudentId(int studentId)
+        {
+            var result = _courseInfoRepository.GetCoursesByStudent(studentId);
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            List<CourseWithoutStudentsDto> listOfCourses = new();
+
+            foreach (var course in result)
+            {
+                var mappedCourse = _mapper.Map<CourseWithoutStudentsDto>(course);
+
+                listOfCourses.Add(mappedCourse);
+            }
+
+            return Ok(listOfCourses);
+        }
     }
 }

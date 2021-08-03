@@ -19,21 +19,26 @@ namespace UniAPI.Services
 
         public bool CourseExists(int courseId)
         {
-            var result = _context.Courses.Any(p => p.Id == courseId);
+            var result = _context.Courses
+                .Any(p => p.Id == courseId);
 
             return result;
         }
 
         public ICollection<Course> GetAllCourses()
         {
-            var result = _context.Courses.Select(P => P).ToList();
+            var result = _context.Courses
+                .Select(P => P)
+                .ToList();
 
             return result;
         }
 
         public IEnumerable<Student> GetAllStudents()
         {
-            var result = _context.Students.Select(P => P).ToList();
+            var result = _context.Students
+                .Select(P => P)
+                .ToList();
 
             return result;
         }
@@ -42,14 +47,17 @@ namespace UniAPI.Services
         {
             if (!includeStudents)
             {
-                var result = _context.Courses.SingleOrDefault(p => p.Id == courseId);
+                var result = _context.Courses
+                    .SingleOrDefault(p => p.Id == courseId);
 
                 return result;
             }
 
             else
             {
-                var result = _context.Courses.Include(P => P.Students).SingleOrDefault(p => p.Id == courseId);
+                var result = _context.Courses
+                    .Include(P => P.Students)
+                    .SingleOrDefault(p => p.Id == courseId);
 
                 return result;
             }
@@ -58,9 +66,15 @@ namespace UniAPI.Services
 
         public IEnumerable<Course> GetCoursesByStudent(int studentId)
         {
-            var result = _context.Courses.Include(p => p.Students).ToList();
+            var result = _context.Students
+                .Where(p => p.Id == studentId)
+                .SelectMany(p => p.EnrolledCourses)
+                .ToList();
 
-            return result;
+            if(result.Count > 0)
+                return result;
+
+            return null; 
         }
 
         public Student GetStudentById(int studentId)
