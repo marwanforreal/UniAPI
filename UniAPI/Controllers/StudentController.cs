@@ -12,7 +12,7 @@ using UniAPI.Services;
 namespace UniAPI.Controllers
 {
     [ApiController]
-    [Route("students")]
+    [Route("api/students")]
     public class StudentController : ControllerBase
     {
         private readonly ICourseInfoRepository _courseInfoRepository;
@@ -38,6 +38,44 @@ namespace UniAPI.Controllers
             }
             return Ok(students);
         }
-        
+
+        [HttpGet("{courseId}")]
+        public ActionResult<List<StudentWithoutCoursesDto>> GetStudentsByCourse(int courseId)
+        {
+            var studentsInCourse = _courseInfoRepository.GetStudentsByCourse(courseId);
+
+            List<StudentWithoutCoursesDto> students = new();
+
+            foreach (var student in studentsInCourse)
+            {
+                students.Add(_mapper.Map<StudentWithoutCoursesDto>(student));
+            }
+
+            return Ok(students);
+        }
+
+        [HttpGet("getById/{studentId}")]
+        public ActionResult GetStudentById(int studentId, bool includeCourses=false)
+        {
+            if (!_courseInfoRepository.StudentExists(studentId))
+            {
+                return NotFound(); 
+            }
+
+            var studentEntity = _courseInfoRepository.GetStudentById(studentId, includeCourses);
+
+            if (!includeCourses)
+            {
+                var mappedStudent = _mapper.Map<StudentWithoutCoursesDto>(studentEntity);
+
+                return Ok(mappedStudent);
+            }
+            else
+            {
+                var mappedStudent = _mapper.Map<StudentWithCoursesDto>(studentEntity);
+
+                return Ok(mappedStudent);
+            }
+        }
     }
 }

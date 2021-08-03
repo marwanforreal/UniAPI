@@ -25,6 +25,13 @@ namespace UniAPI.Services
             return result;
         }
 
+        public bool StudentExists(int studentId)
+        {
+            var result = _context.Students.Any(p => p.Id == studentId);
+
+            return result;
+        }
+
         public ICollection<Course> GetAllCourses()
         {
             var result = _context.Courses
@@ -77,16 +84,33 @@ namespace UniAPI.Services
             return null; 
         }
 
-        public Student GetStudentById(int studentId)
+        public Student GetStudentById(int studentId, bool includeCourses)
         {
-            var result = _context.Students.SingleOrDefault(P => P.Id == studentId);
+            if (!includeCourses)
+            {
+                var result = _context.Students
+                    .SingleOrDefault(P => P.Id == studentId);
 
-            return result;
+                return result;
+            }
+            else
+            {
+                var result = _context.Students
+                    .Include(p => p.EnrolledCourses)
+                    .SingleOrDefault(p => p.Id == studentId);
+
+                return result; 
+            }
         }
 
         public IEnumerable<Student> GetStudentsByCourse(int courseId)
         {
-            throw new NotImplementedException();
+            var result = _context.Courses
+                .Where(P => P.Id == courseId)
+                .SelectMany(p => p.Students)
+                .ToList();
+
+            return result;
         }
     }
 }

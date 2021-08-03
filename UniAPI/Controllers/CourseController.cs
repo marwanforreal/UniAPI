@@ -12,7 +12,7 @@ using UniAPI.Services;
 namespace UniAPI.Controllers
 {
     [ApiController]
-    [Route("api/course")]
+    [Route("api/courses")]
     public class CourseController : ControllerBase
     {
         private readonly ICourseInfoRepository _courseInfoRepository;
@@ -46,7 +46,7 @@ namespace UniAPI.Controllers
         }
 
         [HttpGet("{courseId}")]
-        public ActionResult<CourseWithoutStudentsDto> GetCourseById(int courseId, bool includeStudents = false)
+        public ActionResult GetCourseById(int courseId, bool includeStudents = false)
         {
             if (!_courseInfoRepository.CourseExists(courseId))
             {
@@ -70,7 +70,7 @@ namespace UniAPI.Controllers
             }
         }
 
-        [HttpGet("students/courses/{studentId}")]
+        [HttpGet("students/{studentId}")]
         public ActionResult<CourseWithoutStudentsDto> GetCourseByStudentId(int studentId)
         {
             var result = _courseInfoRepository.GetCoursesByStudent(studentId);

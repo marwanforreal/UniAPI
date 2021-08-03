@@ -16,10 +16,12 @@ namespace UniAPI.Services
 
         IEnumerable<Student> GetAllStudents();
 
-        Student GetStudentById(int studentId);
+        Student GetStudentById(int studentId, bool includeCourses);
 
         IEnumerable<Student> GetStudentsByCourse(int courseId);
 
         bool CourseExists(int courseId);
+
+        bool StudentExists(int studentId);
     }
 }
