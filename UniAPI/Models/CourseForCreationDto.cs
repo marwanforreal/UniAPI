@@ -5,10 +5,8 @@ using System.Threading.Tasks;
 
 namespace UniAPI.Models
 {
-    public class CourseWithStudentsDto
-    { 
-        public int Id { get; set; }
-
+    public class CourseForCreationDto
+    {
         public string Name { get; set; }
 
         public int ClassRoomId { get; set; }
@@ -16,8 +14,5 @@ namespace UniAPI.Models
         public DateTime DateTime { get; set; }
 
         public int LecturerId { get; set; }
-
-        public ICollection<StudentWithoutCoursesDto> Students { get; set; } 
-            = new List<StudentWithoutCoursesDto>();
     }
 }

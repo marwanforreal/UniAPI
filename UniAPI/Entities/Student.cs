@@ -7,6 +7,6 @@ namespace UniAPI.Entities
 {
     public class Student : Person
     {
-        public ICollection<Course> EnrolledCourses { get; set; } = new List<Course>(); 
+        public ICollection<Course> EnrolledCourses { get; set; } = new List<Course>();
     }
 }

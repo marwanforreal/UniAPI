@@ -12,7 +12,7 @@ using UniAPI.Services;
 namespace UniAPI.Controllers
 {
     [ApiController]
-    [Route("api/course")]
+    [Route("api/courses")]
     public class CourseController : ControllerBase
     {
         private readonly ICourseInfoRepository _courseInfoRepository;
@@ -46,7 +46,7 @@ namespace UniAPI.Controllers
         }
 
         [HttpGet("{courseId}")]
-        public ActionResult<CourseWithoutStudentsDto> GetCourseById(int courseId, bool includeStudents = false)
+        public ActionResult GetCourseById(int courseId, bool includeStudents = false)
         {
             if (!_courseInfoRepository.CourseExists(courseId))
             {
@@ -70,7 +70,7 @@ namespace UniAPI.Controllers
             }
         }
 
-        [HttpGet("students/courses/{studentId}")]
+        [HttpGet("students/{studentId}")]
         public ActionResult<CourseWithoutStudentsDto> GetCourseByStudentId(int studentId)
         {
             var result = _courseInfoRepository.GetCoursesByStudent(studentId);
@@ -90,6 +90,24 @@ namespace UniAPI.Controllers
             }
 
             return Ok(listOfCourses);
+        }
+
+        [HttpPost]
+        public ActionResult AddNewCourse(CourseForCreationDto newCourse)
+        {
+            if (!_courseInfoRepository.LecturerExists(newCourse.LecturerId) ||
+                !_courseInfoRepository.ClassRoomExists(newCourse.ClassRoomId))
+            {
+                return NotFound();
+            }
+
+            var mappedCourse = _mapper.Map<Entities.Course>(newCourse); 
+
+            _courseInfoRepository.AddNewCourse(mappedCourse);
+
+            _courseInfoRepository.Save();
+
+            return NoContent();
         }
     }
 }
