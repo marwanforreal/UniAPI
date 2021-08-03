@@ -30,6 +30,8 @@ namespace UniAPI.Services
 
         void AddNewCourse(Course course);
 
+        void AddNewCourseForStudent(int studentId, Course course);
+
         void Save();
     }
 }

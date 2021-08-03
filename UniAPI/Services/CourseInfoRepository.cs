@@ -132,6 +132,13 @@ namespace UniAPI.Services
             _context.Courses.Add(course);
         }
 
+        public void AddNewCourseForStudent(int studentId, Course course)
+        {
+            var student = _context.Students.Include(p => p.EnrolledCourses).SingleOrDefault(p => p.Id == 1);
+
+            student.EnrolledCourses.Add(course);
+        }
+
         public void Save()
         {
             _context.SaveChanges();

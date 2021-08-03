@@ -77,5 +77,17 @@ namespace UniAPI.Controllers
                 return Ok(mappedStudent);
             }
         }
+
+        [HttpPut("{studentId}")]
+        public ActionResult AddCoursesForStudent(int studentId, int courseId)
+        {
+            var course = _courseInfoRepository.GetCourseById(courseId, false); 
+
+            _courseInfoRepository.AddNewCourseForStudent(studentId, course);
+
+            _courseInfoRepository.Save();
+
+            return NoContent();
+        }
     }
 }
