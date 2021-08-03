@@ -45,6 +45,7 @@ namespace UniAPI
             });
 
             services.AddScoped<ICourseInfoRepository, CourseInfoRepository>();
+            services.AddScoped<IStudentInfoRepository, StudentInfoRepository>();
 
         }
 

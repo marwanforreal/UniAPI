@@ -109,5 +109,20 @@ namespace UniAPI.Controllers
 
             return NoContent();
         }
+
+        [HttpDelete]
+        public ActionResult DeleteCourseById(int courseId)
+        {
+            if (!_courseInfoRepository.CourseExists(courseId))
+            {
+                return NotFound(); 
+            }
+
+            _courseInfoRepository.deleteCourse(courseId);
+
+            _courseInfoRepository.Save();
+
+            return NoContent();
+        }
     }
 }
