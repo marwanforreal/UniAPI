@@ -7,6 +7,6 @@ namespace UniAPI.Entities
 {
     public class Lecturer : Person
     {
-        private Course Course { get; set; }
+        public Course Course { get; set; }
     }
 }
