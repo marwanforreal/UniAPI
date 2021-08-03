@@ -32,6 +32,20 @@ namespace UniAPI.Services
             return result;
         }
 
+        public bool LecturerExists(int lecturerId)
+        {
+            var result = _context.Lecturers.Any(p => p.Id == lecturerId);
+
+            return result;
+        }
+
+        public bool ClassRoomExists(int classRoomId)
+        {
+            var result = _context.ClassRooms.Any(p => p.Id == classRoomId);
+
+            return result;
+        }
+
         public ICollection<Course> GetAllCourses()
         {
             var result = _context.Courses
@@ -111,6 +125,16 @@ namespace UniAPI.Services
                 .ToList();
 
             return result;
+        }
+
+        public void AddNewCourse(Course course)
+        {
+            _context.Courses.Add(course);
+        }
+
+        public void Save()
+        {
+            _context.SaveChanges();
         }
     }
 }

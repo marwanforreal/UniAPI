@@ -23,5 +23,13 @@ namespace UniAPI.Services
         bool CourseExists(int courseId);
 
         bool StudentExists(int studentId);
+
+        bool LecturerExists(int lecturerId);
+
+        public bool ClassRoomExists(int classRoomId);
+
+        void AddNewCourse(Course course);
+
+        void Save();
     }
 }

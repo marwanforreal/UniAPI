@@ -91,5 +91,23 @@ namespace UniAPI.Controllers
 
             return Ok(listOfCourses);
         }
+
+        [HttpPost]
+        public ActionResult AddNewCourse(CourseForCreationDto newCourse)
+        {
+            if (!_courseInfoRepository.LecturerExists(newCourse.LecturerId) ||
+                !_courseInfoRepository.ClassRoomExists(newCourse.ClassRoomId))
+            {
+                return NotFound();
+            }
+
+            var mappedCourse = _mapper.Map<Entities.Course>(newCourse); 
+
+            _courseInfoRepository.AddNewCourse(mappedCourse);
+
+            _courseInfoRepository.Save();
+
+            return NoContent();
+        }
     }
 }
