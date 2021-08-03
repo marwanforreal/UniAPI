@@ -10,6 +10,8 @@ namespace UniAPI.Services
     {
         bool StudentExists(int studentId);
 
+        bool EmailExist(string email);
+
         IEnumerable<Student> GetAllStudents();
 
         Student GetStudentById(int studentId, bool includeCourses);
@@ -17,6 +19,8 @@ namespace UniAPI.Services
         IEnumerable<Student> GetStudentsByCourse(int courseId);
 
         void AddNewCourseForStudent(int studentId, Course course);
+
+        void AddNewStudent(Student student);
 
         void Save();
     }

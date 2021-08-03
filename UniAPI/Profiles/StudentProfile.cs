@@ -14,6 +14,8 @@ namespace UniAPI.Profiles
             CreateMap<Entities.Student, StudentWithoutCoursesDto>().ReverseMap();
 
             CreateMap<Entities.Student, StudentWithCoursesDto>().ReverseMap();
+
+            CreateMap<StudentForCreationDto, Entities.Student>();
         }
     }
 }

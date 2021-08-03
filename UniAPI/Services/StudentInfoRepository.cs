@@ -25,6 +25,13 @@ namespace UniAPI.Services
             return result;
         }
 
+        public bool EmailExist(string email)
+        {
+            var result = _context.Students.Any(p => p.Email == email);
+
+            return result;
+        }
+
 
         public void AddNewCourseForStudent(int studentId, Course course)
         {
@@ -69,6 +76,11 @@ namespace UniAPI.Services
                 .ToList();
 
             return result;
+        }
+
+        public void AddNewStudent(Student student)
+        {
+            _context.Students.Add(student);
         }
 
         public void Save()

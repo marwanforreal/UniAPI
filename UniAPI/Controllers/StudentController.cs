@@ -82,6 +82,28 @@ namespace UniAPI.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult AddNewStudent(StudentForCreationDto newStudent)
+        {
+            if (_studentInfoRepository.EmailExist(newStudent.Email))
+            {
+                ModelState.AddModelError("Email","Email already exists");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var newStudentMapped = _mapper.Map<Entities.Student>(newStudent); 
+
+            _studentInfoRepository.AddNewStudent(newStudentMapped);
+
+            _studentInfoRepository.Save();
+
+            return NoContent();
+        }
+
         [HttpPut("{studentId}")]
         public ActionResult AddCoursesForStudent(int studentId, int courseId)
         {
