@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace UniAPI.Models
 {
-    public class StudentDto
+    public class StudentWithoutCoursesDto
     { 
         public int Id { get; set; }
 

@@ -17,7 +17,7 @@ namespace UniAPI.Models
 
         public int LecturerId { get; set; }
 
-        public ICollection<StudentDto> Students { get; set; } 
-            = new List<StudentDto>();
+        public ICollection<StudentWithoutCoursesDto> Students { get; set; } 
+            = new List<StudentWithoutCoursesDto>();
     }
 }
