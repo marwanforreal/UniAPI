@@ -14,15 +14,15 @@ namespace UniAPI.Services
 
         IEnumerable<Course> GetCoursesByStudent(int studentId);
 
-        IEnumerable<Student> GetAllStudents();
+        //IEnumerable<Student> GetAllStudents();
 
-        Student GetStudentById(int studentId, bool includeCourses);
+        //Student GetStudentById(int studentId, bool includeCourses);
 
-        IEnumerable<Student> GetStudentsByCourse(int courseId);
+        //IEnumerable<Student> GetStudentsByCourse(int courseId);
 
         bool CourseExists(int courseId);
 
-        bool StudentExists(int studentId);
+        //bool StudentExists(int studentId);
 
         bool LecturerExists(int lecturerId);
 
@@ -30,7 +30,7 @@ namespace UniAPI.Services
 
         void AddNewCourse(Course course);
 
-        void AddNewCourseForStudent(int studentId, Course course);
+        //void AddNewCourseForStudent(int studentId, Course course);
 
         void Save();
     }

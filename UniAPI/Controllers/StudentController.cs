@@ -15,12 +15,16 @@ namespace UniAPI.Controllers
     [Route("api/students")]
     public class StudentController : ControllerBase
     {
+        private readonly IStudentInfoRepository _studentInfoRepository;
+
         private readonly ICourseInfoRepository _courseInfoRepository;
 
         private readonly IMapper _mapper;
-        public StudentController(ICourseInfoRepository courseInfoRepository, IMapper mapper)
+        public StudentController(IStudentInfoRepository studentInfoRepository,ICourseInfoRepository courseInfoRepository ,IMapper mapper)
         {
-            _courseInfoRepository = courseInfoRepository ?? throw new ArgumentNullException(nameof(courseInfoRepository));
+            _studentInfoRepository = studentInfoRepository ?? throw new ArgumentNullException(nameof(studentInfoRepository));
+
+            _courseInfoRepository = courseInfoRepository ?? throw new ArgumentNullException(nameof(studentInfoRepository));
 
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
@@ -28,7 +32,7 @@ namespace UniAPI.Controllers
         [HttpGet]
         public ActionResult<List<StudentWithoutCoursesDto>> GetAllStudents()
         {
-            var studentEntities = _courseInfoRepository.GetAllStudents();
+            var studentEntities = _studentInfoRepository.GetAllStudents();
 
             List<StudentWithoutCoursesDto> students = new(); 
 
@@ -42,7 +46,7 @@ namespace UniAPI.Controllers
         [HttpGet("{courseId}")]
         public ActionResult<List<StudentWithoutCoursesDto>> GetStudentsByCourse(int courseId)
         {
-            var studentsInCourse = _courseInfoRepository.GetStudentsByCourse(courseId);
+            var studentsInCourse = _studentInfoRepository.GetStudentsByCourse(courseId);
 
             List<StudentWithoutCoursesDto> students = new();
 
@@ -57,12 +61,12 @@ namespace UniAPI.Controllers
         [HttpGet("getById/{studentId}")]
         public ActionResult GetStudentById(int studentId, bool includeCourses=false)
         {
-            if (!_courseInfoRepository.StudentExists(studentId))
+            if (!_studentInfoRepository.StudentExists(studentId))
             {
                 return NotFound(); 
             }
 
-            var studentEntity = _courseInfoRepository.GetStudentById(studentId, includeCourses);
+            var studentEntity = _studentInfoRepository.GetStudentById(studentId, includeCourses);
 
             if (!includeCourses)
             {
@@ -83,9 +87,9 @@ namespace UniAPI.Controllers
         {
             var course = _courseInfoRepository.GetCourseById(courseId, false); 
 
-            _courseInfoRepository.AddNewCourseForStudent(studentId, course);
+            _studentInfoRepository.AddNewCourseForStudent(studentId, course);
 
-            _courseInfoRepository.Save();
+            _studentInfoRepository.Save();
 
             return NoContent();
         }
