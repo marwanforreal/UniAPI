@@ -8,30 +8,21 @@ namespace UniAPI.Services
 {
     public interface ICourseInfoRepository
     {
+        bool CourseExists(int courseId);
         ICollection<Course> GetAllCourses();
 
         Course GetCourseById(int courseId, bool includeStudents);
 
         IEnumerable<Course> GetCoursesByStudent(int studentId);
 
-        //IEnumerable<Student> GetAllStudents();
+        void AddNewCourse(Course course);
 
-        //Student GetStudentById(int studentId, bool includeCourses);
+        void deleteCourse(int courseId);
 
-        //IEnumerable<Student> GetStudentsByCourse(int courseId);
-
-        bool CourseExists(int courseId);
-
-        //bool StudentExists(int studentId);
+        void Save();
 
         bool LecturerExists(int lecturerId);
 
         public bool ClassRoomExists(int classRoomId);
-
-        void AddNewCourse(Course course);
-
-        //void AddNewCourseForStudent(int studentId, Course course);
-
-        void Save();
     }
 }

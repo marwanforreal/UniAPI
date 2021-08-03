@@ -83,6 +83,13 @@ namespace UniAPI.Services
             _context.Students.Add(student);
         }
 
+        public void deleteStudent(int studentId)
+        {
+            var student = _context.Students.Find(studentId);
+
+            _context.Students.Remove(student);
+        }
+
         public void Save()
         {
             _context.SaveChanges();

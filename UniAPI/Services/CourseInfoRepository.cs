@@ -25,12 +25,6 @@ namespace UniAPI.Services
             return result;
         }
 
-        public bool StudentExists(int studentId)
-        {
-            var result = _context.Students.Any(p => p.Id == studentId);
-
-            return result;
-        }
 
         public bool LecturerExists(int lecturerId)
         {
@@ -55,14 +49,6 @@ namespace UniAPI.Services
             return result;
         }
 
-        public IEnumerable<Student> GetAllStudents()
-        {
-            var result = _context.Students
-                .Select(P => P)
-                .ToList();
-
-            return result;
-        }
 
         public Course GetCourseById(int courseId, bool includeStudents)
         {
@@ -132,11 +118,12 @@ namespace UniAPI.Services
             _context.Courses.Add(course);
         }
 
-        public void AddNewCourseForStudent(int studentId, Course course)
-        {
-            var student = _context.Students.Include(p => p.EnrolledCourses).SingleOrDefault(p => p.Id == 1);
 
-            student.EnrolledCourses.Add(course);
+        public void deleteCourse(int courseId)
+        {
+            var courseToDelete = _context.Courses.Find(courseId);
+
+            _context.Remove(courseToDelete);
         }
 
         public void Save()

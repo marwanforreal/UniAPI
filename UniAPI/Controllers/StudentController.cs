@@ -107,9 +107,28 @@ namespace UniAPI.Controllers
         [HttpPut("{studentId}")]
         public ActionResult AddCoursesForStudent(int studentId, int courseId)
         {
+            if (!_courseInfoRepository.CourseExists(courseId) || !_studentInfoRepository.StudentExists(studentId)) 
+            {
+                return NotFound();
+            }
             var course = _courseInfoRepository.GetCourseById(courseId, false); 
 
             _studentInfoRepository.AddNewCourseForStudent(studentId, course);
+
+            _studentInfoRepository.Save();
+
+            return NoContent();
+        }
+
+        [HttpDelete]
+        public ActionResult DeleteStudent(int studentId)
+        {
+            if (!_studentInfoRepository.StudentExists(studentId))
+            {
+                return NotFound();
+            }
+
+            _studentInfoRepository.deleteStudent(studentId);
 
             _studentInfoRepository.Save();
 
