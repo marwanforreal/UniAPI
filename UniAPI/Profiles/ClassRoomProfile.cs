@@ -12,7 +12,9 @@ namespace UniAPI.Profiles
     {
         public ClassRoomProfile()
         {
-            CreateMap<Entities.ClassRoom, ClassRoomViewDto>();
+            CreateMap<Entities.ClassRoom, ClassRoomWithLecturersAndCoursesDto>();
+
+            CreateMap<Entities.ClassRoom, ClassRoomsWithoutCoursesAndLecturersDto>();
         }
     }
 }

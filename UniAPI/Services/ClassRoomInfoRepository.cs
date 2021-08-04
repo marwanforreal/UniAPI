@@ -20,6 +20,7 @@ namespace UniAPI.Services
         {
             var result = _context.ClassRooms.Select(p => p)
                 .Include(p=>p.Courses)
+                .ThenInclude(p=>p.Lecturer)
                 .ToList();
 
             return result;

@@ -26,20 +26,35 @@ namespace UniAPI.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<ClassRoomViewDto>> GetAllClassRooms()
+        public ActionResult<IEnumerable<ClassRoomWithLecturersAndCoursesDto>> GetAllClassRooms(bool includeLecturersAndCourses = false)
         {
             //return Ok(_classRoomRepository.GetAllClassRooms());
 
-            var classRoomEntities = _classRoomRepository.GetAllClassRooms(); 
+            var classRoomEntities = _classRoomRepository.GetAllClassRooms();
 
-            List<ClassRoomViewDto> classRooms = new();
-
-            foreach (var classRoom in classRoomEntities)
+            if (includeLecturersAndCourses)
             {
-                classRooms.Add(_mapper.Map<ClassRoomViewDto>(classRoom));
-            }
+                List<ClassRoomWithLecturersAndCoursesDto> classRooms = new();
 
-            return Ok(classRooms);
+                foreach (var classRoom in classRoomEntities)
+                {
+                    classRooms.Add(_mapper.Map<ClassRoomWithLecturersAndCoursesDto>(classRoom));
+                }
+
+                return Ok(classRooms);
+
+            }
+            else
+            {
+                List<ClassRoomsWithoutCoursesAndLecturersDto> classRooms = new();
+
+                foreach (var classRoom in classRoomEntities)
+                {
+                    classRooms.Add(_mapper.Map<ClassRoomsWithoutCoursesAndLecturersDto>(classRoom));
+                }
+
+                return Ok(classRooms);
+            }
         }
     }
 }
