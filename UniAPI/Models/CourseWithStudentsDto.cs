@@ -15,6 +15,7 @@ namespace UniAPI.Models
 
         public DateTime DateTime { get; set; }
 
+        public LecturerViewDto Lecturer { get; set; }
         public ICollection<StudentWithoutCoursesDto> Students { get; set; } 
             = new List<StudentWithoutCoursesDto>();
     }

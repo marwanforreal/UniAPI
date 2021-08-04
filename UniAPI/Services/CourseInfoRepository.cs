@@ -56,6 +56,7 @@ namespace UniAPI.Services
             if (!includeStudents)
             {
                 var result = _context.Courses
+                    .Include(p=>p.Lecturer)
                     .SingleOrDefault(p => p.Id == courseId);
 
                 return result;
@@ -65,6 +66,7 @@ namespace UniAPI.Services
             {
                 var result = _context.Courses
                     .Include(P => P.Students)
+                    .Include(p=>p.Lecturer)
                     .SingleOrDefault(p => p.Id == courseId);
 
                 return result;

@@ -38,7 +38,7 @@ namespace UniAPI.Controllers
             foreach (var course in result)
             {
                 var mappedCourse = _mapper.Map<CourseWithoutStudentsDto>(course);
-                
+
                 listOfCourses.Add(mappedCourse);
             }
 

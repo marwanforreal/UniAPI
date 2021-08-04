@@ -11,7 +11,8 @@ namespace UniAPI.Profiles
     {
         public LecturerProfile()
         {
-            CreateMap<LecturerForCreationDto, Entities.Lecturer>(); 
+            CreateMap<LecturerForCreationDto, Entities.Lecturer>();
+            CreateMap<Entities.Lecturer, LecturerViewDto>();
         }
     }
 }
