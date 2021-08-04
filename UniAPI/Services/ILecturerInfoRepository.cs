@@ -11,7 +11,7 @@ namespace UniAPI.Services
         bool LecturerExists(int id);
         bool EmailExist(string email);
         List<Lecturer> getAllLecturers();
-        Lecturer GetLecturer(int id, bool includeCourses, bool includeStudents);
+        Lecturer GetLecturerById(int id);
         void AddNewLecturer(Lecturer lecturer);
         void DeleteLecturer(int lecturerId);
         void Save();

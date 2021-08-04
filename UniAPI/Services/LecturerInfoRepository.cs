@@ -37,9 +37,11 @@ namespace UniAPI.Services
             return result;
         }
 
-        public Lecturer GetLecturer(int id, bool includeCourses, bool includeStudents)
+        public Lecturer GetLecturerById(int id)
         {
-            throw new NotImplementedException();
+            var result = _context.Lecturers.Find(id);
+
+            return result;
         }
 
         public void Save()

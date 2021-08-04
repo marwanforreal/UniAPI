@@ -41,6 +41,19 @@ namespace UniAPI.Controllers
             return Ok(result); 
         }
 
+        [HttpGet("byId/{lecturerId}")]
+        public ActionResult GetLecturerById(int lecturerId)
+        {
+            if (!_lecturerInfoRepository.LecturerExists(lecturerId))
+            {
+                return NotFound();
+            }
+
+            var lecturer = _lecturerInfoRepository.GetLecturerById(lecturerId);
+
+            return Ok(lecturer);
+        }
+
         [HttpPost]
         public ActionResult AddLecturer(LecturerForCreationDto newLecturer)
         {
