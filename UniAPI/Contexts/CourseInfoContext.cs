@@ -62,7 +62,6 @@ namespace UniAPI.Contexts
                     Name = "Introduction To Computer Science",
                     DateTime = new DateTime(2021,10,15,15,15,15),
                     ClassRoomId = 3,
-                    LecturerId = 2
                 }
                     );
 

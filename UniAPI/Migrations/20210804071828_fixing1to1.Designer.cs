@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UniAPI.Contexts;
 
 namespace UniAPI.Migrations
 {
     [DbContext(typeof(CourseInfoContext))]
-    partial class CourseInfoContextModelSnapshot : ModelSnapshot
+    [Migration("20210804071828_fixing1to1")]
+    partial class fixing1to1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -176,11 +178,13 @@ namespace UniAPI.Migrations
 
             modelBuilder.Entity("UniAPI.Entities.Course", b =>
                 {
-                    b.HasOne("UniAPI.Entities.ClassRoom", null)
-                        .WithMany("Courses")
+                    b.HasOne("UniAPI.Entities.ClassRoom", "Room")
+                        .WithMany()
                         .HasForeignKey("ClassRoomId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Room");
                 });
 
             modelBuilder.Entity("UniAPI.Entities.Lecturer", b =>
@@ -190,11 +194,6 @@ namespace UniAPI.Migrations
                         .HasForeignKey("UniAPI.Entities.Lecturer", "CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("UniAPI.Entities.ClassRoom", b =>
-                {
-                    b.Navigation("Courses");
                 });
 
             modelBuilder.Entity("UniAPI.Entities.Course", b =>

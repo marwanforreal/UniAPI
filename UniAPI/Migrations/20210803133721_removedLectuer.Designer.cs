@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UniAPI.Contexts;
 
 namespace UniAPI.Migrations
 {
     [DbContext(typeof(CourseInfoContext))]
-    partial class CourseInfoContextModelSnapshot : ModelSnapshot
+    [Migration("20210803133721_removedLectuer")]
+    partial class removedLectuer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -80,6 +82,9 @@ namespace UniAPI.Migrations
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("LecturerId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
@@ -87,6 +92,9 @@ namespace UniAPI.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ClassRoomId");
+
+                    b.HasIndex("LecturerId")
+                        .IsUnique();
 
                     b.ToTable("Courses");
 
@@ -96,6 +104,7 @@ namespace UniAPI.Migrations
                             Id = 4,
                             ClassRoomId = 3,
                             DateTime = new DateTime(2021, 10, 15, 15, 15, 15, 0, DateTimeKind.Unspecified),
+                            LecturerId = 2,
                             Name = "Introduction To Computer Science"
                         });
                 });
@@ -107,9 +116,6 @@ namespace UniAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
@@ -118,16 +124,12 @@ namespace UniAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CourseId")
-                        .IsUnique();
-
                     b.ToTable("Lecturers");
 
                     b.HasData(
                         new
                         {
                             Id = 2,
-                            CourseId = 0,
                             Email = "Ahmed@terkwaz.com",
                             Name = "Ahmed"
                         });
@@ -176,30 +178,26 @@ namespace UniAPI.Migrations
 
             modelBuilder.Entity("UniAPI.Entities.Course", b =>
                 {
-                    b.HasOne("UniAPI.Entities.ClassRoom", null)
-                        .WithMany("Courses")
+                    b.HasOne("UniAPI.Entities.ClassRoom", "Room")
+                        .WithMany()
                         .HasForeignKey("ClassRoomId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("UniAPI.Entities.Lecturer", "Lecturer")
+                        .WithOne("Course")
+                        .HasForeignKey("UniAPI.Entities.Course", "LecturerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Lecturer");
+
+                    b.Navigation("Room");
                 });
 
             modelBuilder.Entity("UniAPI.Entities.Lecturer", b =>
                 {
-                    b.HasOne("UniAPI.Entities.Course", null)
-                        .WithOne("Lecturer")
-                        .HasForeignKey("UniAPI.Entities.Lecturer", "CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("UniAPI.Entities.ClassRoom", b =>
-                {
-                    b.Navigation("Courses");
-                });
-
-            modelBuilder.Entity("UniAPI.Entities.Course", b =>
-                {
-                    b.Navigation("Lecturer");
+                    b.Navigation("Course");
                 });
 #pragma warning restore 612, 618
         }

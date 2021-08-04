@@ -61,7 +61,7 @@ namespace UniAPI.Services
             else
             {
                 var result = _context.Students
-                    .Include(p => p.EnrolledCourses)
+                    .Include(p => p.EnrolledCourses).ThenInclude(p=>p.Lecturer)
                     .SingleOrDefault(p => p.Id == studentId);
 
                 return result;

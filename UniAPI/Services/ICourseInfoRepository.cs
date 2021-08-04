@@ -17,6 +17,8 @@ namespace UniAPI.Services
 
         void AddNewCourse(Course course);
 
+        void UpdateCourseLecturer(int lecturerId, int courseId);
+
         void deleteCourse(int courseId);
 
         void Save();

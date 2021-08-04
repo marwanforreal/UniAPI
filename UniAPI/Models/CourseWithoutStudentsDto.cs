@@ -16,8 +16,9 @@ namespace UniAPI.Models
 
         public int ClassRoomId { get; set; }
 
+        public LecturerWithoutCourseDto Lecturer { get; set; } 
+
         public DateTime DateTime { get; set; }
 
-        public int LecturerId { get; set;}
     }
 }

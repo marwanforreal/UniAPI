@@ -58,7 +58,7 @@ namespace UniAPI.Controllers
             return Ok(students);
         }
 
-        [HttpGet("getById/{studentId}")]
+        [HttpGet("byId/{studentId}")]
         public ActionResult GetStudentById(int studentId, bool includeCourses=false)
         {
             if (!_studentInfoRepository.StudentExists(studentId))

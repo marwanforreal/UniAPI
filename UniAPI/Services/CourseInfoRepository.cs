@@ -43,7 +43,8 @@ namespace UniAPI.Services
         public ICollection<Course> GetAllCourses()
         {
             var result = _context.Courses
-                .Select(P => P)
+                .Select(p => p)
+                .Include(p=>p.Lecturer)
                 .ToList();
 
             return result;
@@ -55,6 +56,7 @@ namespace UniAPI.Services
             if (!includeStudents)
             {
                 var result = _context.Courses
+                    .Include(p=>p.Lecturer)
                     .SingleOrDefault(p => p.Id == courseId);
 
                 return result;
@@ -64,6 +66,7 @@ namespace UniAPI.Services
             {
                 var result = _context.Courses
                     .Include(P => P.Students)
+                    .Include(p=>p.Lecturer)
                     .SingleOrDefault(p => p.Id == courseId);
 
                 return result;
@@ -112,6 +115,16 @@ namespace UniAPI.Services
 
             return result;
         }
+
+        public void UpdateCourseLecturer(int lecturerId, int courseId)
+        {
+            var course = _context.Courses.Find(courseId);
+
+            var lecturer = _context.Lecturers.Find(lecturerId);
+
+            lecturer.CourseId = courseId; 
+        }
+
 
         public void AddNewCourse(Course course)
         {
