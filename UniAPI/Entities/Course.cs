@@ -23,10 +23,7 @@ namespace UniAPI.Entities
 
         public DateTime DateTime { get; set; }
 
-        [ForeignKey("LecturerId")]
         public Lecturer Lecturer { get; set; }
-
-        public int LecturerId { get; set; }
 
         public ICollection<Student> Students { get; set; } = new List<Student>();
     }

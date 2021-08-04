@@ -92,11 +92,25 @@ namespace UniAPI.Controllers
             return Ok(listOfCourses);
         }
 
+        [HttpPut("{courseId}")]
+        public ActionResult UpdateCourseLecturer(int courseId, int lecturerId)
+        {
+            if (!_courseInfoRepository.CourseExists(courseId))
+            {
+                return NotFound();
+            }
+
+            _courseInfoRepository.UpdateCourseLecturer(lecturerId,courseId);
+
+            _courseInfoRepository.Save();
+
+            return NoContent();
+        }
+
         [HttpPost]
         public ActionResult AddNewCourse(CourseForCreationDto newCourse)
         {
-            if (!_courseInfoRepository.LecturerExists(newCourse.LecturerId) ||
-                !_courseInfoRepository.ClassRoomExists(newCourse.ClassRoomId))
+            if (!_courseInfoRepository.ClassRoomExists(newCourse.ClassRoomId))
             {
                 return NotFound();
             }

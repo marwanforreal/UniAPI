@@ -54,6 +54,12 @@ namespace UniAPI.Controllers
                 return BadRequest(ModelState);
             }
 
+            if (!_courseInfoRepository.CourseExists(newLecturer.CourseId))
+            {
+                return NotFound();
+            }
+
+
             var lecturerEntity = _mapper.Map<Entities.Lecturer>(newLecturer); 
 
             _lecturerInfoRepository.AddNewLecturer(lecturerEntity);

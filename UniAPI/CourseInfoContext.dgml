@@ -1,121 +1,108 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Nodes>
-    <Node Id="ClassRoom" Category="EntityType" Annotations="ConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding Relational:DefaultMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMappingBase] Relational:TableMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMapping] Relational:TableName: ClassRooms ServiceOnlyConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding" BaseClass="" Bounds="20,471.72,171.696666666667,141.92" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="ClassRoom" Name="ClassRoom" />
-    <Node Id="ClassRoom.Address" Category="Property Optional" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase] Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="40,567.68,62.51,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="False" IsShadow="False" IsUnicode="True" Label="Address" MaxLength="None" Name="Address" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
-    <Node Id="ClassRoom.Id" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase] Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping] SqlServer:ValueGenerationStrategy: IdentityColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="40,511.72,50,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Id" MaxLength="None" Name="Id" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
-    <Node Id="ClassRoom.Name" Category="Property Optional" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase] Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="120,511.72,51.6966666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="False" IsShadow="False" IsUnicode="True" Label="Name" MaxLength="None" Name="Name" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
-    <Node Id="Course" Category="EntityType" Annotations="ConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding Relational:DefaultMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMappingBase] Relational:TableMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMapping] Relational:TableName: Courses ServiceOnlyConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding" BaseClass="" Bounds="65.0315935919056,121.436087689713,323.826666666667,197.88" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Course" Name="Course" UseManualLocation="True" />
-    <Node Id="Course.ClassRoomId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase] Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="198.164962222703,273.356324330116,88.1133333333334,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ClassRoomId" MaxLength="None" Name="ClassRoomId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
-    <Node Id="Course.DateTime" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase] Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="85.0315950148584,217.396355763221,70.67,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="DateTime" MaxLength="None" Name="DateTime" PropertyAccessMode="PropertyAccessMode.Default" Type="DateTime" ValueGenerated="None" />
-    <Node Id="Course.Id" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase] Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping] SqlServer:ValueGenerationStrategy: IdentityColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="85.0315921156885,161.43634141996,50,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Id" MaxLength="None" Name="Id" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
-    <Node Id="Course.Lecturer" Category="Navigation Property" Bounds="288.911534081427,217.396355763221,79.9466666666667,25.96" Dependent="" Field="" Inverse="" Label="Lecturer (1)" Name="Lecturer" Principal="Lecturer" PropertyAccessMode="PropertyAccessMode.Default" Type="Lecturer" />
-    <Node Id="Course.LecturerId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase] Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="185.701627973843,217.396355763221,73.21,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="LecturerId" MaxLength="None" Name="LecturerId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
-    <Node Id="Course.Name" Category="Property Optional" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 50 Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase] Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="165.031597863166,161.43634141996,51.6966666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="False" IsShadow="False" IsUnicode="True" Label="Name" MaxLength="(50)" Name="Name" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
-    <Node Id="Course.Room" Category="Navigation Property" Bounds="246.728228925991,161.43634141996,68.22,25.96" Dependent="" Field="" Inverse="" Label="Room (1)" Name="Room" Principal="ClassRoom" PropertyAccessMode="PropertyAccessMode.Default" Type="ClassRoom" />
-    <Node Id="Course.Students" Category="Navigation Property" Bounds="85.0315910984359,273.356324330116,83.1333333333334,25.96" Dependent="" Field="" Inverse="EnrolledCourses" Label="Students (1)" Name="Students" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="ICollection&lt;Student&gt;" />
-    <Node Id="CourseStudent" Category="EntityType" Annotations="ConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding Relational:DefaultMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMappingBase] Relational:TableMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMapping] ServiceOnlyConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding" BaseClass="" Bounds="482.165,40,155.366666666667,141.92" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="CourseStudent" Name="CourseStudent" />
-    <Node Id="CourseStudent.EnrolledCoursesId" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase] Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="502.165,135.96,115.366666666667,25.96" Field="nofield" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="EnrolledCoursesId" MaxLength="None" Name="EnrolledCoursesId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
-    <Node Id="CourseStudent.StudentsId" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase] Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="502.165,80,76.3966666666668,25.96" Field="nofield" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="StudentsId" MaxLength="None" Name="StudentsId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
-    <Node Id="IModel" Category="Model" Annotations="Relational:MaxIdentifierLength: 128 Relational:RelationalModel: Microsoft.EntityFrameworkCore.Metadata.Internal.RelationalModel SqlServer:ValueGenerationStrategy: IdentityColumn" Bounds="0,0,693.25,633.64" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" Label="CourseInfoContext" ProductVersion="5.0.8" PropertyAccessMode="PropertyAccessMode.Default" />
-    <Node Id="Lecturer" Category="EntityType" Annotations="ConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding Relational:DefaultMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMappingBase] Relational:TableMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMapping] Relational:TableName: Lecturers ServiceOnlyConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding" BaseClass="" Bounds="221.848333333333,471.72,170,141.92" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Lecturer" Name="Lecturer" />
-    <Node Id="Lecturer.Email" Category="Property Optional" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase] Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="321.848333333333,511.72,50,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="False" IsShadow="False" IsUnicode="True" Label="Email" MaxLength="None" Name="Email" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
-    <Node Id="Lecturer.Id" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase] Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping] SqlServer:ValueGenerationStrategy: IdentityColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="241.848333333333,511.72,50,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Id" MaxLength="None" Name="Id" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
-    <Node Id="Lecturer.Name" Category="Property Optional" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase] Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="241.848333333333,567.68,51.6966666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="False" IsShadow="False" IsUnicode="True" Label="Name" MaxLength="None" Name="Name" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
-    <Node Id="Student" Category="EntityType" Annotations="" BaseClass="" Bounds="446.446666666667,255.86,226.803333333333,141.92" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Student" Name="Student" />
-    <Node Id="Student.Email" Category="Property Optional" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase] Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="546.446666666667,295.86,50,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="False" IsShadow="False" IsUnicode="True" Label="Email" MaxLength="None" Name="Email" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
-    <Node Id="Student.EnrolledCourses" Category="Property Optional" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="548.143333333333,351.82,105.106666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="False" IsShadow="False" IsUnicode="True" Label="EnrolledCourses" MaxLength="None" Name="EnrolledCourses" PropertyAccessMode="PropertyAccessMode.Default" Type="ICollection&lt;Course&gt;" ValueGenerated="None" />
-    <Node Id="Student.Id" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase] Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping] SqlServer:ValueGenerationStrategy: IdentityColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="466.446666666667,295.86,50,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Id" MaxLength="None" Name="Id" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
-    <Node Id="Student.Name" Category="Property Optional" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase] Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="466.446666666667,351.82,51.6966666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="False" IsShadow="False" IsUnicode="True" Label="Name" MaxLength="None" Name="Name" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+<Node Id="IModel" Label="CourseInfoContext" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" PropertyAccessMode="PropertyAccessMode.Default" ProductVersion="5.0.8" Annotations="Relational:MaxIdentifierLength: 128
+Relational:RelationalModel: Microsoft.EntityFrameworkCore.Metadata.Internal.RelationalModel
+SqlServer:ValueGenerationStrategy: IdentityColumn" Category="Model" Group="Expanded" />
+<Node Id = "CourseStudent" Label="CourseStudent" Name="CourseStudent" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="ConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding
+Relational:DefaultMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMappingBase]
+Relational:TableMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMapping]
+ServiceOnlyConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding" Category="EntityType" Group="Expanded" />
+<Node Id = "ClassRoom" Label="ClassRoom" Name="ClassRoom" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="ConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding
+Relational:DefaultMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMappingBase]
+Relational:TableMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMapping]
+Relational:TableName: ClassRooms
+ServiceOnlyConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding" Category="EntityType" Group="Expanded" />
+<Node Id = "CourseStudent.EnrolledCoursesId" Label="EnrolledCoursesId" Name="EnrolledCoursesId" Category="Property Primary" Type="int" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="True" IsForeignKey="True" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "CourseStudent.StudentsId" Label="StudentsId" Name="StudentsId" Category="Property Primary" Type="int" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="True" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Course" Label="Course" Name="Course" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="ConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding
+Relational:DefaultMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMappingBase]
+Relational:TableMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMapping]
+Relational:TableName: Courses
+ServiceOnlyConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding" Category="EntityType" Group="Expanded" />
+<Node Id = "ClassRoom.Id" Label="Id" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]
+SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "ClassRoom.Address" Label="Address" Name="Address" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "ClassRoom.Name" Label="Name" Name="Name" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Lecturer" Label="Lecturer" Name="Lecturer" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="ConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding
+Relational:DefaultMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMappingBase]
+Relational:TableMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMapping]
+Relational:TableName: Lecturers
+ServiceOnlyConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding" Category="EntityType" Group="Expanded" />
+<Node Id = "Course.Id" Label="Id" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]
+SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "Course.Lecturer" Label="Lecturer (1)" Name="Lecturer" Category="Navigation Property" Type="Lecturer"  Field="" Dependent="Lecturer" Principal="" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Course.Room" Label="Room (1)" Name="Room" Category="Navigation Property" Type="ClassRoom"  Field="" Dependent="" Principal="ClassRoom" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Course.Students" Label="Students (1)" Name="Students" Category="Navigation Property" Type="ICollection&lt;Student&gt;"  Field="" Dependent="" Principal="" Inverse="EnrolledCourses" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Course.ClassRoomId" Label="ClassRoomId" Name="ClassRoomId" Category="Property Foreign" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Course.DateTime" Label="DateTime" Name="DateTime" Category="Property Required" Type="DateTime" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Course.Name" Label="Name" Name="Name" Category="Property Optional" Type="string" MaxLength="(50)" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 50
+Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Student" Label="Student" Name="Student" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="ConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding
+Relational:DefaultMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMappingBase]
+Relational:TableMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMapping]
+Relational:TableName: Students
+ServiceOnlyConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding" Category="EntityType" Group="Expanded" />
+<Node Id = "Lecturer.Id" Label="Id" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]
+SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "Lecturer.CourseId" Label="CourseId" Name="CourseId" Category="Property Foreign" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Lecturer.Email" Label="Email" Name="Email" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Lecturer.Name" Label="Name" Name="Name" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Student" Label="Student" Name="Student" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="" Category="EntityType" Group="Expanded" />
+<Node Id = "Student.Id" Label="Id" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]
+SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "Student.Email" Label="Email" Name="Email" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Student.Name" Label="Name" Name="Name" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Student.EnrolledCourses" Label="EnrolledCourses" Name="EnrolledCourses" Category="Property Optional" Type="ICollection&lt;Course&gt;" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
   </Nodes>
   <Links>
-    <Link Source="ClassRoom" Target="ClassRoom.Address" Category="Contains" />
-    <Link Source="ClassRoom" Target="ClassRoom.Id" Category="Contains" />
-    <Link Source="ClassRoom" Target="ClassRoom.Name" Category="Contains" />
-    <Link Source="Course" Target="ClassRoom" Category="Foreign Key" Annotations="Relational:ForeignKeyMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ForeignKeyConstraint]" Bounds="135.674990975688,319.316087689713,54.0960248911938,143.978950569191" From="Course.ClassRoomId" IsUnique="False" Label="1:*" LabelBounds="166.731725359981,386.322583777149,14.0733333333334,15.96" Name="Course -&gt; ClassRoom" To="ClassRoom.Id" />
-    <Link Source="Course" Target="Course.ClassRoomId" Category="Contains" />
-    <Link Source="Course" Target="Course.DateTime" Category="Contains" />
-    <Link Source="Course" Target="Course.Id" Category="Contains" />
-    <Link Source="Course" Target="Course.Lecturer" Category="Contains" />
-    <Link Source="Course" Target="Course.LecturerId" Category="Contains" />
-    <Link Source="Course" Target="Course.Name" Category="Contains" />
-    <Link Source="Course" Target="Course.Room" Category="Contains" />
-    <Link Source="Course" Target="Course.Students" Category="Contains" />
-    <Link Source="Course" Target="Lecturer" Category="Foreign Key" Annotations="Relational:ForeignKeyMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ForeignKeyConstraint]" Bounds="251.473462658327,319.316087689713,35.6172876513256,143.668357482444" From="Course.LecturerId" IsUnique="False" Label="1:*" LabelBounds="273.28388545257,382.68900872426,14.0733333333334,15.96" Name="Course -&gt; Lecturer" To="Lecturer.Id" />
-    <Link Source="CourseStudent" Target="Course" Category="Foreign Key" Annotations="Relational:ForeignKeyMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ForeignKeyConstraint]" Bounds="397.40829050817,136.492350370755,84.7567094918305,27.8571723194725" From="CourseStudent.EnrolledCoursesId" IsUnique="False" Label="1:*" LabelBounds="434.005788678496,154.426198962198,14.0733333333334,15.96" Name="CourseStudent -&gt; Course" To="Course.Id" />
-    <Link Source="CourseStudent" Target="CourseStudent.EnrolledCoursesId" Category="Contains" />
-    <Link Source="CourseStudent" Target="CourseStudent.StudentsId" Category="Contains" />
-    <Link Source="CourseStudent" Target="Student" Category="Foreign Key" Annotations="Relational:ForeignKeyMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ForeignKeyConstraint]" Bounds="559.848333333333,181.92,0,64.9400000000001" From="CourseStudent.StudentsId" IsUnique="False" Label="1:*" LabelBounds="563.848333333333,206.41,14.0733333333334,15.96" Name="CourseStudent -&gt; Student" To="Student.Id" />
-    <Link Source="IModel" Target="ClassRoom" Category="Contains" />
-    <Link Source="IModel" Target="Course" Category="Contains" />
-    <Link Source="IModel" Target="CourseStudent" Category="Contains" />
-    <Link Source="IModel" Target="Lecturer" Category="Contains" />
-    <Link Source="IModel" Target="Student" Category="Contains" />
-    <Link Source="Lecturer" Target="Lecturer.Email" Category="Contains" />
-    <Link Source="Lecturer" Target="Lecturer.Id" Category="Contains" />
-    <Link Source="Lecturer" Target="Lecturer.Name" Category="Contains" />
-    <Link Source="Student" Target="Student.Email" Category="Contains" />
-    <Link Source="Student" Target="Student.EnrolledCourses" Category="Contains" />
-    <Link Source="Student" Target="Student.Id" Category="Contains" />
-    <Link Source="Student" Target="Student.Name" Category="Contains" />
+<Link Source = "IModel" Target="CourseStudent" Category="Contains" />
+<Link Source = "IModel" Target="ClassRoom" Category="Contains" />
+<Link Source = "CourseStudent" Target="CourseStudent.EnrolledCoursesId" Category="Contains" />
+<Link Source="CourseStudent" Target="Course" From="CourseStudent.EnrolledCoursesId" To="Course.Id" Name="CourseStudent -> Course" Annotations="Relational:ForeignKeyMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ForeignKeyConstraint]" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="CourseStudent" Target="Student" From="CourseStudent.StudentsId" To="Student.Id" Name="CourseStudent -> Student" Annotations="Relational:ForeignKeyMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ForeignKeyConstraint]" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "CourseStudent" Target="CourseStudent.StudentsId" Category="Contains" />
+<Link Source = "IModel" Target="Course" Category="Contains" />
+<Link Source = "ClassRoom" Target="ClassRoom.Id" Category="Contains" />
+<Link Source = "ClassRoom" Target="ClassRoom.Address" Category="Contains" />
+<Link Source = "ClassRoom" Target="ClassRoom.Name" Category="Contains" />
+<Link Source = "IModel" Target="Lecturer" Category="Contains" />
+<Link Source = "Course" Target="Course.Lecturer" Category="Contains" />
+<Link Source = "Course" Target="Course.Room" Category="Contains" />
+<Link Source = "Course" Target="Course.Students" Category="Contains" />
+<Link Source = "Course" Target="Course.Id" Category="Contains" />
+<Link Source="Course" Target="ClassRoom" From="Course.ClassRoomId" To="ClassRoom.Id" Name="Course -> ClassRoom" Annotations="Relational:ForeignKeyMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ForeignKeyConstraint]" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "Course" Target="Course.ClassRoomId" Category="Contains" />
+<Link Source = "Course" Target="Course.DateTime" Category="Contains" />
+<Link Source = "Course" Target="Course.Name" Category="Contains" />
+<Link Source = "IModel" Target="Student" Category="Contains" />
+<Link Source = "Lecturer" Target="Lecturer.Id" Category="Contains" />
+<Link Source="Lecturer" Target="Course" From="Lecturer.CourseId" To="Course.Id" Name="Lecturer -> Course" Annotations="Relational:ForeignKeyMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ForeignKeyConstraint]" IsUnique="True" Label="1:1" Category="Foreign Key" />
+<Link Source = "Lecturer" Target="Lecturer.CourseId" Category="Contains" />
+<Link Source = "Lecturer" Target="Lecturer.Email" Category="Contains" />
+<Link Source = "Lecturer" Target="Lecturer.Name" Category="Contains" />
+<Link Source = "IModel" Target="Student" Category="Contains" />
+<Link Source = "Student" Target="Student.Id" Category="Contains" />
+<Link Source = "Student" Target="Student.Email" Category="Contains" />
+<Link Source = "Student" Target="Student.Name" Category="Contains" />
+<Link Source = "Student" Target="Student.EnrolledCourses" Category="Contains" />
   </Links>
-  <Categories>
-    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
-    <Category Id="EntityType" />
-    <Category Id="Foreign Key" />
-    <Category Id="Model" />
-    <Category Id="Navigation Property" />
-    <Category Id="Property Foreign" />
-    <Category Id="Property Optional" />
-    <Category Id="Property Primary" />
-    <Category Id="Property Required" />
-  </Categories>
-  <Properties>
-    <Property Id="AfterSaveBehavior" Group="Property Flags" DataType="System.String" />
-    <Property Id="Annotations" Description="Annotations" Group="Model Properties" DataType="System.String" />
-    <Property Id="BaseClass" Description="Base class" Group="Model Properties" DataType="System.String" />
-    <Property Id="BeforeSaveBehavior" Group="Property Flags" DataType="System.String" />
-    <Property Id="Bounds" DataType="System.Windows.Rect" />
-    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
-    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
-    <Property Id="ChangeTrackingStrategy" Description="Change tracking strategy" Group="Model Properties" DataType="System.String" />
-    <Property Id="Dependent" Description="Dependent entity" Group="Model Properties" DataType="System.String" />
-    <Property Id="Expression" DataType="System.String" />
-    <Property Id="Field" Description="Backing field" Group="Model Properties" DataType="System.String" />
-    <Property Id="From" Description="Target property" Group="Model Properties" DataType="System.String" />
-    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
-    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
-    <Property Id="GroupLabel" DataType="System.String" />
-    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
-    <Property Id="Inverse" Description="Inverse entity" Group="Model Properties" DataType="System.String" />
-    <Property Id="IsAbstract" Label="IsAbstract" Description="IsAbstract" Group="Model Properties" DataType="System.Boolean" />
-    <Property Id="IsAlternateKey" Group="Property Flags" DataType="System.Boolean" />
-    <Property Id="IsConcurrencyToken" Group="Property Flags" DataType="System.Boolean" />
-    <Property Id="IsContainment" DataType="System.Boolean" />
-    <Property Id="IsEnabled" DataType="System.Boolean" />
-    <Property Id="IsForeignKey" Group="Property Flags" DataType="System.Boolean" />
-    <Property Id="IsIndexed" Group="Property Flags" DataType="System.Boolean" />
-    <Property Id="IsPrimaryKey" Group="Property Flags" DataType="System.Boolean" />
-    <Property Id="IsRequired" Group="Property Flags" DataType="System.Boolean" />
-    <Property Id="IsShadow" Group="Property Flags" DataType="System.Boolean" />
-    <Property Id="IsUnicode" Group="Property Flags" DataType="System.Boolean" />
-    <Property Id="IsUnique" Group="Model Properties" DataType="System.Boolean" />
-    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
-    <Property Id="LabelBounds" DataType="System.Windows.Rect" />
-    <Property Id="MaxLength" DataType="System.String" />
-    <Property Id="Name" Group="Model Properties" DataType="System.String" />
-    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
-    <Property Id="Principal" Description="Principal entity" Group="Model Properties" DataType="System.String" />
-    <Property Id="ProductVersion" Label="Product Version" Description="EF Core product version" Group="Model Properties" DataType="System.String" />
-    <Property Id="PropertyAccessMode" Group="Property Flags" DataType="System.String" />
-    <Property Id="TargetType" DataType="System.Type" />
-    <Property Id="To" Description="Source property" Group="Model Properties" DataType="System.String" />
-    <Property Id="Type" Description="CLR data type" Group="Model Properties" DataType="System.String" />
-    <Property Id="UseManualLocation" DataType="System.Boolean" />
-    <Property Id="Value" DataType="System.String" />
-    <Property Id="ValueGenerated" Group="Property Flags" DataType="System.String" />
-    <Property Id="ValueLabel" DataType="System.String" />
-  </Properties>
   <Styles>
     <Style TargetType="Node" GroupLabel="EntityType" ValueLabel="True">
       <Condition Expression="HasCategory('EntityType')" />
@@ -150,4 +137,33 @@
       <Setter Property="Background" Value="#FFFFFFFF" />
     </Style>
   </Styles>
+  <Properties>
+    <Property Id="Name" Group="Model Properties" DataType="System.String" />
+    <Property Id="Field"  Description="Backing field" Group="Model Properties" DataType="System.String" />
+    <Property Id="Type"  Description="CLR data type" Group="Model Properties" DataType="System.String" />
+    <Property Id="To" Description="Source property" Group="Model Properties" DataType="System.String" />
+    <Property Id="From" Description="Target property" Group="Model Properties" DataType="System.String" />
+    <Property Id="Dependent" Description="Dependent entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="Inverse" Description="Inverse entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="Principal" Description="Principal entity" Group="Model Properties" DataType="System.String" />    
+    <Property Id="Annotations" Description="Annotations" Group="Model Properties" DataType="System.String" />
+    <Property Id="BaseClass"  Description="Base class" Group="Model Properties" DataType="System.String" />
+    <Property Id="ChangeTrackingStrategy" Description="Change tracking strategy" Group="Model Properties" DataType="System.String" />
+    <Property Id="IsUnique" Group="Model Properties" DataType="System.Boolean" />
+    <Property Id="IsAbstract" Group="Model Properties" DataType="System.Boolean" />
+    <Property Id="ProductVersion" Label="Product Version" Description="EF Core product version" Group="Model Properties" DataType="System.String" />
+    <Property Id="IsIndexed" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsRequired" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsPrimaryKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsForeignKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsShadow" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsAlternateKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsConcurrencyToken" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsIndexed" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsUnicode" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="ValueGenerated" Group="Property Flags" DataType="System.String" />
+    <Property Id="BeforeSaveBehavior" Group="Property Flags" DataType="System.String" />
+    <Property Id="AfterSaveBehavior" Group="Property Flags" DataType="System.String" />
+    <Property Id="PropertyAccessMode" Group="Property Flags" DataType="System.String" />
+  </Properties>
 </DirectedGraph>

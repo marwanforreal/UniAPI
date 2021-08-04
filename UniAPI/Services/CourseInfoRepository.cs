@@ -113,6 +113,16 @@ namespace UniAPI.Services
             return result;
         }
 
+        public void UpdateCourseLecturer(int lecturerId, int courseId)
+        {
+            var course = _context.Courses.Find(courseId);
+
+            var lecturer = _context.Lecturers.Find(lecturerId);
+
+            lecturer.CourseId = courseId; 
+        }
+
+
         public void AddNewCourse(Course course)
         {
             _context.Courses.Add(course);
