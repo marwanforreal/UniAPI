@@ -43,7 +43,8 @@ namespace UniAPI.Services
         public ICollection<Course> GetAllCourses()
         {
             var result = _context.Courses
-                .Select(P => P)
+                .Select(p => p)
+                .Include(p=>p.Lecturer)
                 .ToList();
 
             return result;

@@ -11,14 +11,14 @@ namespace UniAPI.Controllers
 {
     [ApiController]
     [Route("lecturer")]
-    public class LecutrerController : ControllerBase
+    public class LecturerController : ControllerBase
     {
         private readonly ILecturerInfoRepository _lecturerInfoRepository;
         private readonly ICourseInfoRepository _courseInfoRepository;
         private readonly IStudentInfoRepository _studentInfoRepository;
         private readonly IMapper _mapper;
 
-        public LecutrerController(ILecturerInfoRepository lecturerInfoRepository, 
+        public LecturerController(ILecturerInfoRepository lecturerInfoRepository, 
             ICourseInfoRepository courseInfoRepository, 
             IStudentInfoRepository studentInfoRepository,
             IMapper mapper)
