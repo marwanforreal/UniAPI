@@ -14,7 +14,7 @@ namespace UniAPI.Models
 
         public string Address { get; set; }
 
-        public ICollection<CourseWithoutStudentsDto> CoursesTakingPlace { get; set; }
+        public ICollection<CourseWithoutStudentsDto> Courses { get; set; }
     }
 
 }

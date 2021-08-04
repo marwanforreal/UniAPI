@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using UniAPI.Contexts;
 using UniAPI.Entities;
 
@@ -17,7 +18,9 @@ namespace UniAPI.Services
         }
         public IEnumerable<ClassRoom> GetAllClassRooms()
         {
-            var result = _context.ClassRooms.Select(p => p).ToList();
+            var result = _context.ClassRooms.Select(p => p)
+                .Include(p=>p.Courses)
+                .ToList();
 
             return result;
         }

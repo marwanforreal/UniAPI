@@ -16,9 +16,6 @@ namespace UniAPI.Entities
         [MaxLength(50)]
         public string Name { get; set; }
 
-        [ForeignKey("ClassRoomId")]
-        public ClassRoom Room { get; set; }
-
         public int ClassRoomId { get; set; }
 
         public DateTime DateTime { get; set; }
