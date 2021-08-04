@@ -12,6 +12,12 @@ namespace UniAPI.Services
     {
         private readonly CourseInfoContext _context;
 
+        public bool ClassRoomExists(int classRoomId)
+        {
+            var result = _context.ClassRooms.Any(p => p.Id == classRoomId);
+
+            return result;
+        }
         public ClassRoomInfoRepository(CourseInfoContext context)
         {
             _context = context ?? throw new ArgumentNullException();
@@ -28,7 +34,9 @@ namespace UniAPI.Services
 
         public ClassRoom GetClassRoomById(int classRoomId)
         {
-            var result = _context.ClassRooms.SingleOrDefault(p => p.Id == classRoomId);
+            var result = _context.ClassRooms
+                .Include(p=>p.Courses)
+                .SingleOrDefault(p => p.Id == classRoomId);
 
             return result; 
         }

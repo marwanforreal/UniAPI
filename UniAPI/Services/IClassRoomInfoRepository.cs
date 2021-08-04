@@ -8,6 +8,8 @@ namespace UniAPI.Services
 {
     public interface IClassRoomInfoRepository
     {
+        bool ClassRoomExists(int classRoomId);
+
         IEnumerable<ClassRoom> GetAllClassRooms();
 
         ClassRoom GetClassRoomById(int classRoomId);

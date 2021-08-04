@@ -26,7 +26,8 @@ namespace UniAPI.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<ClassRoomWithLecturersAndCoursesDto>> GetAllClassRooms(bool includeLecturersAndCourses = false)
+        public ActionResult<IEnumerable<ClassRoomWithLecturersAndCoursesDto>> GetAllClassRooms(
+            bool includeLecturersAndCourses = false)
         {
             //return Ok(_classRoomRepository.GetAllClassRooms());
 
@@ -54,6 +55,31 @@ namespace UniAPI.Controllers
                 }
 
                 return Ok(classRooms);
+            }
+        }
+
+        [HttpGet("{classRoomId}")]
+        public ActionResult<ClassRoomsWithoutCoursesAndLecturersDto> GetClassRoomById(int classRoomId, bool includeCourses)
+        {
+            if (!_classRoomRepository.ClassRoomExists(classRoomId))
+            {
+                return NotFound();
+            }
+
+            var classRoomById = _classRoomRepository.GetClassRoomById(classRoomId);
+
+            if (!includeCourses)
+            {
+                var mappedClassRoom = _mapper.Map<ClassRoomsWithoutCoursesAndLecturersDto>(classRoomById);
+
+                return Ok(mappedClassRoom);
+            }
+
+            else
+            {
+                var mappedClassRoom = _mapper.Map<ClassRoomWithLecturersAndCoursesDto>(classRoomById);
+
+                return Ok(mappedClassRoom);
             }
         }
     }
