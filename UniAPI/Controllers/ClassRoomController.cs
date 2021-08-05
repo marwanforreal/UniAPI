@@ -102,5 +102,20 @@ namespace UniAPI.Controllers
 
             return NoContent();
         }
+
+        [HttpDelete]
+        public ActionResult DeleteClassRoomById(int classRoomId)
+        {
+            if (!_classRoomRepository.ClassRoomExists(classRoomId))
+            {
+                return NotFound();
+            }
+
+            _classRoomRepository.deleteClassRoom(classRoomId);
+
+            _classRoomRepository.Save();
+
+            return NoContent();
+        }
     }
 }

@@ -54,6 +54,13 @@ namespace UniAPI.Services
             _context.ClassRooms.Add(classRoom);
         }
 
+        public void deleteClassRoom(int classRoomId)
+        {
+            var classRoomEntity = _context.ClassRooms.Find(classRoomId);
+
+            _context.Remove(classRoomEntity); 
+        }
+
         public void Save()
         {
             _context.SaveChanges();
