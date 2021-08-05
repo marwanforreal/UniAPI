@@ -46,6 +46,11 @@ namespace UniAPI.Controllers
         [HttpGet("{courseId}")]
         public ActionResult<List<StudentWithoutCoursesDto>> GetStudentsByCourse(int courseId)
         {
+            if (!_courseInfoRepository.CourseExists(courseId))
+            {
+                return NotFound();
+            }
+
             var studentsInCourse = _studentInfoRepository.GetStudentsByCourse(courseId);
 
             List<StudentWithoutCoursesDto> students = new();
@@ -114,6 +119,23 @@ namespace UniAPI.Controllers
             var course = _courseInfoRepository.GetCourseById(courseId, false); 
 
             _studentInfoRepository.AddNewCourseForStudent(studentId, course);
+
+            _studentInfoRepository.Save();
+
+            return NoContent();
+        }
+
+        [HttpDelete("{studentId}/{courseId}")]
+        public ActionResult DeleteCourseForStudent(int studentId, int courseId)
+        {
+            if (!_courseInfoRepository.CourseExists(courseId) || !_studentInfoRepository.StudentExists(studentId))
+            {
+                return NotFound();
+            }
+
+            var course = _courseInfoRepository.GetCourseById(courseId, false);
+
+            _studentInfoRepository.DeleteCourseForStudent(studentId, course);
 
             _studentInfoRepository.Save();
 

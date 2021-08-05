@@ -24,6 +24,8 @@ namespace UniAPI.Services
 
         void deleteStudent(int studentId);
 
+        void DeleteCourseForStudent(int studentId, Course course);
+
         void Save();
     }
 }
