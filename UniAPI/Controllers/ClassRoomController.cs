@@ -11,7 +11,7 @@ using UniAPI.Services;
 namespace UniAPI.Controllers
 {
     [ApiController]
-    [Route("api/classRoom")]
+    [Route("classRoom")]
     public class ClassRoomController : ControllerBase
     {
         private readonly IClassRoomInfoRepository _classRoomRepository;

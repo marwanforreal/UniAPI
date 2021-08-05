@@ -10,7 +10,7 @@ using UniAPI.Services;
 namespace UniAPI.Controllers
 {
     [ApiController]
-    [Route("api/lecturer")]
+    [Route("lecturer")]
     public class LecturerController : ControllerBase
     {
         private readonly ILecturerInfoRepository _lecturerInfoRepository;
