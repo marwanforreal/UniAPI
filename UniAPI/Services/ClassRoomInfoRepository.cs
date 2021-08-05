@@ -36,6 +36,7 @@ namespace UniAPI.Services
         {
             var result = _context.ClassRooms
                 .Include(p=>p.Courses)
+                .ThenInclude(p=>p.Lecturer)
                 .SingleOrDefault(p => p.Id == classRoomId);
 
             return result; 
