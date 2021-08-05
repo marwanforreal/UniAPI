@@ -14,7 +14,9 @@ namespace UniAPI.Profiles
         {
             CreateMap<Entities.ClassRoom, ClassRoomWithLecturersAndCoursesDto>();
 
-            CreateMap<Entities.ClassRoom, ClassRoomsWithoutCoursesAndLecturersDto>().ReverseMap();
+            CreateMap<Entities.ClassRoom, ClassRoomWithoutCoursesAndLecturersDto>().ReverseMap();
+
+            CreateMap<ClassRoomForCreationDto, Entities.ClassRoom>();
         }
     }
 }

@@ -25,7 +25,7 @@ ServiceOnlyConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.Constructo
 <Node Id = "ClassRoom.Id" Label="Id" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
 Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]
 SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
-<Node Id = "ClassRoom.CoursesTakingPlace" Label="CoursesTakingPlace (*)" Name="CoursesTakingPlace" Category="Navigation Collection" Type="ICollection&lt;Course&gt;"  Field="" Dependent="Course" Principal="" Inverse="Room" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "ClassRoom.Courses" Label="Courses (*)" Name="Courses" Category="Navigation Collection" Type="ICollection&lt;Course&gt;"  Field="" Dependent="Course" Principal="" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
 <Node Id = "ClassRoom.Address" Label="Address" Name="Address" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
 Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
 <Node Id = "ClassRoom.Name" Label="Name" Name="Name" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
@@ -39,7 +39,6 @@ ServiceOnlyConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.Constructo
 Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]
 SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
 <Node Id = "Course.Lecturer" Label="Lecturer (1)" Name="Lecturer" Category="Navigation Property" Type="Lecturer"  Field="" Dependent="Lecturer" Principal="" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
-<Node Id = "Course.Room" Label="Room (1)" Name="Room" Category="Navigation Property" Type="ClassRoom"  Field="" Dependent="" Principal="ClassRoom" Inverse="CoursesTakingPlace" PropertyAccessMode="PropertyAccessMode.Default" />
 <Node Id = "Course.Students" Label="Students (1)" Name="Students" Category="Navigation Property" Type="ICollection&lt;Student&gt;"  Field="" Dependent="" Principal="" Inverse="EnrolledCourses" PropertyAccessMode="PropertyAccessMode.Default" />
 <Node Id = "Course.ClassRoomId" Label="ClassRoomId" Name="ClassRoomId" Category="Property Foreign" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
 Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
@@ -80,13 +79,12 @@ Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft
 <Link Source="CourseStudent" Target="Student" From="CourseStudent.StudentsId" To="Student.Id" Name="CourseStudent -> Student" Annotations="Relational:ForeignKeyMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ForeignKeyConstraint]" IsUnique="False" Label="1:*" Category="Foreign Key" />
 <Link Source = "CourseStudent" Target="CourseStudent.StudentsId" Category="Contains" />
 <Link Source = "IModel" Target="Course" Category="Contains" />
-<Link Source = "ClassRoom" Target="ClassRoom.CoursesTakingPlace" Category="Contains" />
+<Link Source = "ClassRoom" Target="ClassRoom.Courses" Category="Contains" />
 <Link Source = "ClassRoom" Target="ClassRoom.Id" Category="Contains" />
 <Link Source = "ClassRoom" Target="ClassRoom.Address" Category="Contains" />
 <Link Source = "ClassRoom" Target="ClassRoom.Name" Category="Contains" />
 <Link Source = "IModel" Target="Lecturer" Category="Contains" />
 <Link Source = "Course" Target="Course.Lecturer" Category="Contains" />
-<Link Source = "Course" Target="Course.Room" Category="Contains" />
 <Link Source = "Course" Target="Course.Students" Category="Contains" />
 <Link Source = "Course" Target="Course.Id" Category="Contains" />
 <Link Source="Course" Target="ClassRoom" From="Course.ClassRoomId" To="ClassRoom.Id" Name="Course -> ClassRoom" Annotations="Relational:ForeignKeyMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ForeignKeyConstraint]" IsUnique="False" Label="1:*" Category="Foreign Key" />

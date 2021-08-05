@@ -18,6 +18,13 @@ namespace UniAPI.Services
 
             return result;
         }
+
+        public bool ClassRoomExists(string classRoomName)
+        {
+            var result = _context.ClassRooms.Any(p => p.Name == classRoomName);
+
+            return result;
+        }
         public ClassRoomInfoRepository(CourseInfoContext context)
         {
             _context = context ?? throw new ArgumentNullException();
@@ -40,6 +47,16 @@ namespace UniAPI.Services
                 .SingleOrDefault(p => p.Id == classRoomId);
 
             return result; 
+        }
+
+        public void AddNewClassRoom(ClassRoom classRoom)
+        {
+            _context.ClassRooms.Add(classRoom);
+        }
+
+        public void Save()
+        {
+            _context.SaveChanges();
         }
     }
 }

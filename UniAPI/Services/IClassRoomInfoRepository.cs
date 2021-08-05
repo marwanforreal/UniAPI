@@ -10,8 +10,14 @@ namespace UniAPI.Services
     {
         bool ClassRoomExists(int classRoomId);
 
+        bool ClassRoomExists(string classRoomName);
+
         IEnumerable<ClassRoom> GetAllClassRooms();
 
         ClassRoom GetClassRoomById(int classRoomId);
+
+        void AddNewClassRoom(ClassRoom classRoom);
+
+        void Save();
     }
 }
