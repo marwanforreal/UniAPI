@@ -11,7 +11,7 @@ using UniAPI.Services;
 namespace UniAPI.Controllers
 {
     [ApiController]
-    [Route("classRoom")]
+    [Route("api/classRoom")]
     public class ClassRoomController : ControllerBase
     {
         private readonly IClassRoomInfoRepository _classRoomRepository;
@@ -26,10 +26,9 @@ namespace UniAPI.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<ClassRoomWithLecturersAndCoursesDto>> GetAllClassRooms(bool includeLecturersAndCourses = false)
+        public ActionResult<IEnumerable<ClassRoomWithLecturersAndCoursesDto>> GetAllClassRooms(
+            bool includeLecturersAndCourses = false)
         {
-            //return Ok(_classRoomRepository.GetAllClassRooms());
-
             var classRoomEntities = _classRoomRepository.GetAllClassRooms();
 
             if (includeLecturersAndCourses)
@@ -46,15 +45,77 @@ namespace UniAPI.Controllers
             }
             else
             {
-                List<ClassRoomsWithoutCoursesAndLecturersDto> classRooms = new();
+                List<ClassRoomWithoutCoursesAndLecturersDto> classRooms = new();
 
                 foreach (var classRoom in classRoomEntities)
                 {
-                    classRooms.Add(_mapper.Map<ClassRoomsWithoutCoursesAndLecturersDto>(classRoom));
+                    classRooms.Add(_mapper.Map<ClassRoomWithoutCoursesAndLecturersDto>(classRoom));
                 }
 
                 return Ok(classRooms);
             }
+        }
+
+        [HttpGet("{classRoomId}")]
+        public ActionResult<ClassRoomWithoutCoursesAndLecturersDto> GetClassRoomById(int classRoomId, bool includeCourses)
+        {
+            if (!_classRoomRepository.ClassRoomExists(classRoomId))
+            {
+                return NotFound();
+            }
+
+            var classRoomById = _classRoomRepository.GetClassRoomById(classRoomId);
+
+            if (!includeCourses)
+            {
+                var mappedClassRoom = _mapper.Map<ClassRoomWithoutCoursesAndLecturersDto>(classRoomById);
+
+                return Ok(mappedClassRoom);
+            }
+
+            else
+            {
+                var mappedClassRoom = _mapper.Map<ClassRoomWithLecturersAndCoursesDto>(classRoomById);
+
+                return Ok(mappedClassRoom);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult AddNewClassRoom(ClassRoomForCreationDto classRoom)
+        {
+            if (_classRoomRepository.ClassRoomExists(classRoom.Name))
+            {
+                ModelState.AddModelError("Name","Name Already Registered");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var classRoomMapped = _mapper.Map<Entities.ClassRoom>(classRoom);
+
+            _classRoomRepository.AddNewClassRoom(classRoomMapped);
+
+            _classRoomRepository.Save();
+
+            return NoContent();
+        }
+
+        [HttpDelete]
+        public ActionResult DeleteClassRoomById(int classRoomId)
+        {
+            if (!_classRoomRepository.ClassRoomExists(classRoomId))
+            {
+                return NotFound();
+            }
+
+            _classRoomRepository.deleteClassRoom(classRoomId);
+
+            _classRoomRepository.Save();
+
+            return NoContent();
         }
     }
 }

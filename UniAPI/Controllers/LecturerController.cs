@@ -10,7 +10,7 @@ using UniAPI.Services;
 namespace UniAPI.Controllers
 {
     [ApiController]
-    [Route("lecturer")]
+    [Route("api/lecturer")]
     public class LecturerController : ControllerBase
     {
         private readonly ILecturerInfoRepository _lecturerInfoRepository;
@@ -41,7 +41,7 @@ namespace UniAPI.Controllers
             return Ok(result); 
         }
 
-        [HttpGet("byId/{lecturerId}")]
+        [HttpGet("{lecturerId}")]
         public ActionResult GetLecturerById(int lecturerId)
         {
             if (!_lecturerInfoRepository.LecturerExists(lecturerId))

@@ -17,6 +17,7 @@ namespace UniAPI.Entities
 
         public string Address { get; set; }
 
-        public ICollection<Course> Courses { get; set; }
+        public ICollection<Course> Courses { get; set; } 
+            = new List<Course>();
     }
 }

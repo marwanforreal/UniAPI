@@ -90,6 +90,13 @@ namespace UniAPI.Services
             _context.Students.Remove(student);
         }
 
+        public void DeleteCourseForStudent(int studentId, Course course)
+        {
+            var student = _context.Students.Include(p => p.EnrolledCourses).SingleOrDefault(p => p.Id == studentId);
+
+            student.EnrolledCourses.Remove(course);
+        }
+
         public void Save()
         {
             _context.SaveChanges();

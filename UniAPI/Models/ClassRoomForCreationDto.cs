@@ -5,12 +5,9 @@ using System.Threading.Tasks;
 
 namespace UniAPI.Models
 {
-    public class ClassRoomsWithoutCoursesAndLecturersDto
+    public class ClassRoomForCreationDto
     {
-        public int Id { get; set; }
-
         public string Name { get; set; }
-
         public string Address { get; set; }
     }
 }
