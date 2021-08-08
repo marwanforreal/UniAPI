@@ -125,6 +125,15 @@ namespace UniAPI.Services
             lecturer.CourseId = courseId; 
         }
 
+        public void UpdateCourseClassRoom(int classRoomId, int courseId)
+        {
+            var course = _context.Courses.Find(courseId);
+
+            var classRoom = _context.ClassRooms.Find(classRoomId);
+
+            classRoom.Courses.Add(course);
+        }
+
 
         public void AddNewCourse(Course course)
         {

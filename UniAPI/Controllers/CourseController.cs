@@ -17,12 +17,18 @@ namespace UniAPI.Controllers
     {
         private readonly ICourseInfoRepository _courseInfoRepository;
 
+        private readonly IClassRoomInfoRepository _classRoomInfoRepository;
+
         private readonly IMapper _mapper;
 
-        public CourseController(ICourseInfoRepository courseInfoRepository, IMapper imapper)
+        public CourseController(ICourseInfoRepository courseInfoRepository, IClassRoomInfoRepository classRoomInfoRepository
+            ,IMapper imapper)
         {
             _courseInfoRepository =
                 courseInfoRepository ?? throw new ArgumentNullException(nameof(courseInfoRepository));
+
+            _classRoomInfoRepository =
+                classRoomInfoRepository ?? throw new ArgumentNullException(nameof(classRoomInfoRepository));
 
             _mapper = imapper ?? throw new ArgumentNullException(nameof(imapper));
         }
@@ -101,6 +107,22 @@ namespace UniAPI.Controllers
             }
 
             _courseInfoRepository.UpdateCourseLecturer(lecturerId,courseId);
+
+            _courseInfoRepository.Save();
+
+            return NoContent();
+        }
+
+        [HttpPut("{courseId}/updateClassRoom/{classRoomId}")]
+        public ActionResult UpdateCourseClassRoom(int courseId, int classRoomId)
+        {
+            if (!_courseInfoRepository.CourseExists(courseId) || !_classRoomInfoRepository.ClassRoomExists(classRoomId))
+            {
+                return NotFound();
+            }
+
+
+            _courseInfoRepository.UpdateCourseClassRoom(classRoomId,courseId);
 
             _courseInfoRepository.Save();
 

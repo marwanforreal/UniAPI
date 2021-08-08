@@ -23,7 +23,7 @@ namespace UniAPI.Services
 
         void Save();
 
-        bool LecturerExists(int lecturerId);
+        void UpdateCourseClassRoom(int classRoomId, int courseId);
 
         public bool ClassRoomExists(int classRoomId);
     }
