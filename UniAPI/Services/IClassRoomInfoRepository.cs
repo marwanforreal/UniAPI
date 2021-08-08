@@ -17,7 +17,6 @@ namespace UniAPI.Services
         ClassRoom GetClassRoomById(int classRoomId);
 
         void AddNewClassRoom(ClassRoom classRoom);
-
         void deleteClassRoom(int classRoomId);
 
         void Save();

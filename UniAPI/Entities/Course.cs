@@ -16,11 +16,11 @@ namespace UniAPI.Entities
         [MaxLength(50)]
         public string Name { get; set; }
 
-        public int ClassRoomId { get; set; }
+        public int? ClassRoomId { get; set; }
 
         public DateTime DateTime { get; set; }
 
-        public Lecturer Lecturer { get; set; }
+        public Lecturer Lecturer { get; set; } 
 
         public ICollection<Student> Students { get; set; } = new List<Student>();
     }
